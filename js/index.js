@@ -5,12 +5,12 @@ function mergeArr() {
     A1 = A1.split(',')
     let A2 = prompt('Enter Array 2 (With commas): ');
     A2 = A2.split(',')
-    for (let i = 0; i < A1.length; i++) {
-        A1[i] = Number(A1[i])
-    }
-    for (let i = 0; i < A2.length; i++) {
-        A2[i] = Number(A2[i])
-    }
+    // for (let i = 0; i < A1.length; i++) {
+    //     A1[i] = Number(A1[i])
+    // }
+    // for (let i = 0; i < A2.length; i++) {
+    //     A2[i] = Number(A2[i])
+    // }
 
 
     for (let i = 0; i < A1.length; i++) {
@@ -23,7 +23,7 @@ function mergeArr() {
             newArr.push(A2[i])
         }
     }
-    console.log('Bai1.a:'+ newArr)
+    console.log('Bai1.a:' + newArr)
 }
 mergeArr()
 
@@ -81,7 +81,8 @@ function ranking() {
         }
     }
 
-    console.log('Bai1.b:' +data)
+    console.log('Bai1.b:')
+    console.log(data)
 }
 
 ranking();
@@ -97,7 +98,6 @@ async function quizApi() {
                 dataQuiz = data.results
             })
         })
-    console.log(dataQuiz)
     let point = 0;
     let i = 0;
 
@@ -125,16 +125,14 @@ async function quizApi() {
     })
     document.getElementById('restart').addEventListener('click', function () {
         if (i > 0) {
-            quizRestart(i)
+            quizRestart()
         }
-
     })
 
 
-    function quizRestart(i) {
-        i = i - 1;
-        console.log(i)
-        console.log(dataQuiz[i].incorrect_answers)
+    function quizRestart() {
+        i = 0;
+        point = 0;
         quizQuestion(dataQuiz, i, point)
     }
 }
